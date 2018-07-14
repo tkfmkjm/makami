@@ -1,0 +1,273 @@
+/*
+Theme Name: Makami
+Description: CSS Grid WordPress Theme
+Author: Takafumi Kojima
+Author URI: http://takafumikojima.com
+Version: 1.0
+*/
+
+/*-----------------------------
+Reset
+-----------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*-----------------------------
+Comment Seciton
+-----------------------------*/
+
+label.screen-reader-text {
+    display:none;
+    }
+
+/*-----------------------------
+General & CSS Grid Layout
+-----------------------------*/
+
+body {
+    background-color: #fff;
+}
+
+div {
+    border: 1px dashed #222;
+}
+
+figure img {
+    width: 100%;
+    height: 100%;
+}
+
+div#container {
+    display: grid;
+    border: 3px solid blue;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 0px;
+}
+
+header {
+    grid-column: auto / span 10;
+}
+
+nav {
+    grid-column: auto / span 2;
+    text-align: center;
+}
+
+nav li {
+    display: block;
+}
+
+div#main-content--full {
+    grid-column: 1 / -1;
+}
+
+div#main-content {
+    grid-column: 1 / -1;
+}
+
+aside.secondary {
+    grid-column: 1 / -1;
+}
+
+footer {
+    text-align: center;
+    grid-column: 1 / -1;
+    height: 50px;
+}
+
+/*
+
+Deskttop Size
+
+*/
+
+@media (min-width: 581px) {
+    nav ul {
+        display: block;
+    }
+    nav li {
+        display: inline-block;
+    }
+    div#container {
+        max-width: 1360px;
+        margin: 0 auto;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-columns: minmax(200px, auto);
+    }
+    header {
+        grid-column: auto / span 6;
+    }
+    nav {
+        grid-column: auto / span 6;
+        text-align: right;
+        padding-right: 20px;
+    }
+    div#main-content {
+        grid-column: auto / span 9;
+    }
+    /* No-sidebar */
+    div#main-content--full {
+        grid-column: auto / span 12;
+    }
+    aside.secondary {
+        grid-column: auto / span 3;
+    }
+    /* Footer */
+    footer {
+        text-align: center;
+        grid-column: 1 / -1;
+        height: 50px;
+    }
+}
+
+/* media ends */
+
+article {
+    background-color: yellow;
+    border: 2px solid orange;
+}
+
+/*-----------------------------
+Header
+-----------------------------*/
+
+header {
+    background-color: aquamarine;
+}
+
+/*-----------------------------
+Navigation
+-----------------------------*/
+
+nav {
+    background-color: #ff9dd8;
+}
+
+aside {
+    background-color: rgb(119, 220, 119);
+}
+
+/*-----------------------------
+Footer
+-----------------------------*/
+
+footer {
+    background-color: #949ef5;
+}
+
+/*-----------------------------
+Hamburger Menu
+-----------------------------*/
+
+.header {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* background: #ddd; */
+    /* padding: 20px; */
+    /* text-align: right; */
+}
+
+.nav-button {
+    display: none;
+}
+
+ul#menu-navigation li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.nav-wrap.open {
+    display: block;
+}
+
+.nav-wrap.close {
+    display: none;
+}
+
+@media screen and (min-width: 581px) {
+    .nav-wrap {
+        display: block !important;
+    }
+}
+
+.content {
+    padding: 20px;
+}
+
+@media screen and (max-width: 580px) {
+    .nav-button {
+        display: block;
+        cursor: pointer;
+    }
+    .nav-wrap {
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: none;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        height: 100%;
+    }
+    .nav-wrap ul#menu-navigation {
+        height: 100%;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .nav-wrap ul#menu-navigation li {
+        display: block;
+        margin: 2em;
+    }
+    .nav-wrap ul#menu-navigation li a {
+        color: #fff;
+        font-size: 18px;
+    }
+    /* Menu Icon Animation */
+    .nav-button,
+    .nav-button span {
+        display: inline-block;
+        transition: all 0.4s;
+        box-sizing: border-box;
+    }
+    .nav-button {
+        z-index: 20;
+        position: relative;
+        width: 40px;
+        height: 36px;
+    }
+    .nav-button span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #000;
+        border-radius: 4px;
+    }
+    .nav-button span:nth-of-type(1) {
+        top: 0;
+      }
+      .nav-button span:nth-of-type(2) {
+        top: 16px;
+      }
+      .nav-button span:nth-of-type(3) {
+        bottom: 0;
+      }
+      .nav-button.active span:nth-of-type(1) {
+        -webkit-transform: translateY(16px) rotate(-45deg);
+        transform: translateY(16px) rotate(-45deg);
+        background-color:white;
+      }
+      .nav-button.active span:nth-of-type(2) {
+        opacity: 0;
+      }
+      .nav-button.active span:nth-of-type(3) {
+        -webkit-transform: translateY(-16px) rotate(45deg);
+        transform: translateY(-16px) rotate(45deg);
+        background-color:white;
+      }
+}
+
